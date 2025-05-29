@@ -9,24 +9,24 @@ const ProductsPage = () => {
   // Mock photo data
   const categories = {
     products: [
-      { id: 1, src: "https://placehold.co/600x400/2c3e50/ffffff?text=Product+1", alt: "Product 1" },
-      { id: 2, src: "https://placehold.co/600x400/3498db/ffffff?text=Product+2", alt: "Product 2" },
-      { id: 3, src: "https://placehold.co/600x400/e74c3c/ffffff?text=Product+3", alt: "Product 3" },
-      { id: 4, src: "https://placehold.co/600x400/2ecc71/ffffff?text=Product+4", alt: "Product 4" },
-      { id: 5, src: "https://placehold.co/600x400/f1c40f/ffffff?text=Product+5", alt: "Product 5" }
+      { id: 1, src: "/MOC1.jpg", alt: "Product 1" },
+      { id: 2, src: "/MOC2.jpg", alt: "Product 2" },
+      { id: 3, src: "/MOC3.jpg", alt: "Product 3" },
+      { id: 4, src: "/MOC4.jpg", alt: "Product 4" },
+      { id: 5, src: "/MOC5.jpg", alt: "Product 5" }
     ],
     interior: [
-      { id: 1, src: "https://placehold.co/800x600/9b59b6/ffffff?text=Interior+1", alt: "Interior 1" },
-      { id: 2, src: "https://placehold.co/800x600/34495e/ffffff?text=Interior+2", alt: "Interior 2" },
-      { id: 3, src: "https://placehold.co/800x600/1abc9c/ffffff?text=Interior+3", alt: "Interior 3" }
+      { id: 1, src: "int1.jpg", alt: "Interior 1" },
+      { id: 2, src: "int2.jpg", alt: "Interior 2" },
+      { id: 3, src: "int3.jpg", alt: "Interior 3" }
     ],
     exterior: [
-      { id: 1, src: "https://placehold.co/1000x600/3498db/ffffff?text=Exterior+1", alt: "Exterior 1" },
-      { id: 2, src: "https://placehold.co/1000x600/e67e22/ffffff?text=Exterior+2", alt: "Exterior 2" },
-      { id: 3, src: "https://placehold.co/1000x600/27ae60/ffffff?text=Exterior+3", alt: "Exterior 3" },
-      { id: 4, src: "https://placehold.co/1000x600/c0392b/ffffff?text=Exterior+4", alt: "Exterior 4" },
-      { id: 5, src: "https://placehold.co/1000x600/f39c12/ffffff?text=Exterior+5", alt: "Exterior 5" },
-      { id: 6, src: "https://placehold.co/1000x600/8e44ad/ffffff?text=Exterior+6", alt: "Exterior 6" }
+      { id: 1, src: "/HOUSE1.jpg", alt: "Exterior 1" },
+      { id: 2, src: "/HOUSE2.jpg", alt: "Exterior 2" },
+      { id: 3, src: "/HOUSE3.jpg", alt: "Exterior 3" },
+      { id: 4, src: "/HOUSE4.JPG", alt: "Exterior 4" },
+      { id: 5, src: "/HOUSE5.jpg", alt: "Exterior 5" },
+      { id: 6, src: "/HOUSE6.jpg", alt: "Exterior 6" }
     ]
   };
 

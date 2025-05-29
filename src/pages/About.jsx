@@ -20,7 +20,7 @@ export default function App() {
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <img
-              src="/VVB/HOUSE6.jpg"   // Replace with your actual image path
+              src="/HOUSE6.jpg"   // Replace with your actual image path
               alt="PaintPro Team Painting a House"
               className="rounded-lg shadow-md"
             />

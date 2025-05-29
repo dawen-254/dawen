@@ -12,11 +12,11 @@ export default function Home() {
 
   const projects = [
     { id: 1, category: "interior", image: "/int1.jpg" },
-    { id: 2, category: "exterior", image: "https://placehold.co/600x400/e67e22/ffffff?text=Exterior+1" },
-    { id: 3, category: "design", image: "https://placehold.co/600x400/27ae60/ffffff?text=Design+1" },
-    { id: 4, category: "commercial", image: "https://placehold.co/600x400/f39c12/ffffff?text=Commercial+1" },
-    { id: 5, category: "interior", image: "https://placehold.co/600x400/9b59b6/ffffff?text=Interior+2" },
-    { id: 6, category: "exterior", image: "https://placehold.co/600x400/16a085/ffffff?text=Exterior+2" },
+    { id: 2, category: "exterior", image: "/int2.jpg" },
+    { id: 3, category: "design", image: "/HOUSE6.jpg" },
+    { id: 4, category: "commercial", image: "/EXT1.jpg" },
+    { id: 5, category: "interior", image: "/int3.jpg" },
+    { id: 6, category: "exterior", image: "/HOUSE2.jpg" },
   ];
 
   const filteredProjects = activeTab === "all"
