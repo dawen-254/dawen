@@ -6,7 +6,7 @@ export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Mock data with placeholder images
+  // Mock paint data with placeholder images
   const paints = [
     { id: 1, name: "Acrylic Paint Set", category: "Interior Wall", image: "https://placehold.co/300x200/3498db/ffffff?text=Acrylic+Paint" },
     { id: 2, name: "Classic Interior Wall Paint", category: "Interior Wall", image: "https://placehold.co/300x200/2c3e50/ffffff?text=Interior+Wall" },
@@ -100,7 +100,7 @@ export default function Products() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-3 py-1.5 text-sm whitespace-nowrap rounded-full ${
+              className={`px-3 py-1.5 whitespace-nowrap text-sm rounded-full ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
                   : "bg-gray-200 text-gray-700"
@@ -112,7 +112,7 @@ export default function Products() {
         </div>
       </div>
 
-      {/* Products Grid */}
+      {/* Main Content */}
       <main className="p-4">
         <h2 className="text-xl font-bold mb-4">{activeCategory === "All" ? "All Paints" : `${activeCategory} Paints`}</h2>
         {filteredPaints.length === 0 ? (
@@ -203,7 +203,7 @@ export default function Products() {
                   <span className="font-bold text-blue-600">{cartTotal}</span>
                 </div>
                 <button
-                  onClick={() => alert("Checkout functionality coming soon!")}
+                  onClick={() => alert("Checkout not implemented yet.")}
                   className="w-full bg-blue-500 text-white py-2 rounded text-sm hover:bg-blue-600"
                 >
                   Checkout
