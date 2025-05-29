@@ -11,7 +11,7 @@ export default function Home() {
   ];
 
   const projects = [
-    { id: 1, category: "interior", image: "./VVB/int1.jpg" },
+    { id: 1, category: "interior", image: "/int1.jpg" },
     { id: 2, category: "exterior", image: "https://placehold.co/600x400/e67e22/ffffff?text=Exterior+1" },
     { id: 3, category: "design", image: "https://placehold.co/600x400/27ae60/ffffff?text=Design+1" },
     { id: 4, category: "commercial", image: "https://placehold.co/600x400/f39c12/ffffff?text=Commercial+1" },
