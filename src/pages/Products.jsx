@@ -24,7 +24,7 @@ const ProductsPage = () => {
       { id: 1, src: "/HOUSE1.jpg", alt: "Exterior 1" },
       { id: 2, src: "/HOUSE2.jpg", alt: "Exterior 2" },
       { id: 3, src: "/HOUSE3.jpg", alt: "Exterior 3" },
-      { id: 4, src: "/HOUSE4.JPG", alt: "Exterior 4" },
+      { id: 4, src: "/HOUSE4.jpg", alt: "Exterior 4" },
       { id: 5, src: "/HOUSE5.jpg", alt: "Exterior 5" },
       { id: 6, src: "/HOUSE6.jpg", alt: "Exterior 6" }
     ]

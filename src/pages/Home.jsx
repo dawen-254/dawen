@@ -12,8 +12,8 @@ export default function Home() {
 
   const projects = [
     { id: 1, category: "interior", image: "/int1.jpg" },
-    { id: 2, category: "exterior", image: "/int2.jpg" },
-    { id: 3, category: "design", image: "/HOUSE6.jpg" },
+    { id: 2, category: "exterior", image: "/HOUSE6.jpg" },
+    { id: 3, category: "design", image: "/int2.jpg" },
     { id: 4, category: "commercial", image: "/EXT1.jpg" },
     { id: 5, category: "interior", image: "/int3.jpg" },
     { id: 6, category: "exterior", image: "/HOUSE2.jpg" },
@@ -62,7 +62,7 @@ export default function Home() {
             </a>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <img src="https://placehold.co/600x400/db2777/ffffff?text=Painting+Service" alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
+            <img src="/HOUSE1.jpg" alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
           </div>
         </div>
       </section>

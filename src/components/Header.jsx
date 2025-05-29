@@ -10,7 +10,7 @@ export default function Header() {
         {/* Logo as Image */}
         <Link to="/" className="flex items-center">
           <img
-            src="/VVB/logo.jpg" // Replace with your actual logo path
+            src="/logo.jpg" // Replace with your actual logo path
             alt="Jorozz Paints Logo"
             className="h-10 w-auto object-contain"
           />
