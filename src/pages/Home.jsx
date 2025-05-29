@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState } from "react";
 
 export default function Home() {
@@ -12,12 +11,12 @@ export default function Home() {
   ];
 
   const projects = [
-    { id: 1, category: "interior", image: "/VVB/HOUSE1.jpg " },
-    { id: 2, category: "exterior", image: "/VVB/HOUSE2.jpg " },
-    { id: 3, category: "design", image: "/VVB/HOUSE3.jpg " },
-    { id: 4, category: "commercial", image: "/VVB/HOUSE4.jpg " },
-    { id: 5, category: "interior", image: "/VVB/HOUSE5.jpg " },
-    { id: 6, category: "exterior", image: "/VVB/HOUSE6.jpg " },
+    { id: 1, category: "interior", image: "https://placehold.co/600x400/3498db/ffffff?text=Interior+1" },
+    { id: 2, category: "exterior", image: "https://placehold.co/600x400/e67e22/ffffff?text=Exterior+1" },
+    { id: 3, category: "design", image: "https://placehold.co/600x400/27ae60/ffffff?text=Design+1" },
+    { id: 4, category: "commercial", image: "https://placehold.co/600x400/f39c12/ffffff?text=Commercial+1" },
+    { id: 5, category: "interior", image: "https://placehold.co/600x400/9b59b6/ffffff?text=Interior+2" },
+    { id: 6, category: "exterior", image: "https://placehold.co/600x400/16a085/ffffff?text=Exterior+2" },
   ];
 
   const filteredProjects = activeTab === "all"
@@ -48,31 +47,31 @@ export default function Home() {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-700 to-red-800 text-white py-20 md:py-32">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Bring Color to Your World</h1>
-            <p className="mt-4 text-lg opacity-90">Professional residential and commercial painting services that transform spaces.</p>
+      <section className="relative bg-gradient-to-r from-teal-700 to-red-800 text-white py-16 md:py-32 px-4">
+        <div className="container mx-auto flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">Bring Color to Your World</h1>
+            <p className="mt-4 text-sm sm:text-base opacity-90">Professional residential and commercial painting services that transform spaces.</p>
             <a 
-  href="https://wa.me/+254754611441 " 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="bg-green-400 hover:bg-yellow-300 text-white font-semibold px-8 py-3 rounded shadow transition-transform transform hover:scale-105 inline-block"
->
-  Get Free Quote
-</a>
+              href="https://wa.me/+254754611441" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-6 inline-block bg-green-500 hover:bg-yellow-400 text-white font-semibold px-6 py-3 rounded shadow transition-transform duration-300 transform hover:scale-105"
+            >
+              Get Free Quote
+            </a>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <img src="/VVB/HOM2.jpg " alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
+            <img src="https://placehold.co/600x400/db2777/ffffff?text=Painting+Service" alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="py-16 bg-gray-50 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Our Services</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <div key={service.id} className="bg-white p-6 rounded shadow hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
@@ -84,10 +83,10 @@ export default function Home() {
       </section>
 
       {/* Projects Gallery */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Featured Projects</h2>
-          <div className="flex justify-center mb-8 space-x-4">
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">Featured Projects</h2>
+          <div className="flex justify-center mb-8 flex-wrap gap-2">
             {["all", "interior", "exterior", "design", "commercial"].map((tab) => (
               <button
                 key={tab}
@@ -111,9 +110,9 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+      <section className="py-16 bg-gray-50 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded shadow">
@@ -121,7 +120,7 @@ export default function Home() {
                   <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full mr-4" />
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </div>
                 <p className="text-gray-700 italic">"{testimonial.content}"</p>
@@ -132,24 +131,24 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-red-700 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
-          <p className="text-lg mb-6">Get in touch today for a free consultation and quote.</p>
+      <section className="py-16 bg-red-700 text-white px-4">
+        <div className="container mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
+          <p className="text-sm sm:text-base mb-6">Get in touch today for a free consultation and quote.</p>
           <a 
-  href="https://wa.me/+254113750834 " 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="bg-green-400 hover:bg-green-300 text-white font-semibold px-8 py-3 rounded shadow transition-transform transform hover:scale-105 inline-block"
->
-  Contact Us Now
-</a>
+            href="https://wa.me/+254113750834" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-green-500 hover:bg-green-400 text-white font-semibold px-6 py-3 rounded shadow transition-transform duration-300 transform hover:scale-105"
+          >
+            Contact Us Now
+          </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
+      <footer className="bg-gray-900 text-white py-8 px-4">
+        <div className="container mx-auto text-center">
           <p>&copy; 2025 JOROZZPAINTS Painting Company. All rights reserved.</p>
         </div>
       </footer>
