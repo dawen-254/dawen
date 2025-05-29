@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function App() {
+export default function Products() {
   const [cart, setCart] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Mock paint data with placeholder images
+  // Mock data with placeholder images
   const paints = [
     { id: 1, name: "Acrylic Paint Set", category: "Interior Wall", image: "https://placehold.co/300x200/3498db/ffffff?text=Acrylic+Paint" },
     { id: 2, name: "Classic Interior Wall Paint", category: "Interior Wall", image: "https://placehold.co/300x200/2c3e50/ffffff?text=Interior+Wall" },
@@ -63,59 +63,47 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-blue-600">PaintMart</h1>
+      <header className="bg-white shadow sticky top-0 z-10">
+        <div className="flex items-center justify-between px-4 py-3">
+          <h1 className="text-lg font-bold text-blue-600">PaintMart</h1>
           <button
-            onClick={() => setIsCartOpen(!isCartOpen)}
-            className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Open shopping cart"
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 rounded-full hover:bg-gray-100"
+            aria-label="View cart"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-blue-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
             {cart.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
                 {cartTotal}
               </span>
             )}
           </button>
         </div>
+        {/* Mobile Search Bar */}
+        <div className="px-4 pb-3">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
       </header>
 
-      {/* Search Bar - Always visible on mobile */}
-      <div className="px-4 py-3 bg-white shadow-sm">
-        <input
-          type="text"
-          placeholder="Search for paints..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      {/* Category Filters */}
+      {/* Categories */}
       <div className="bg-white py-2 overflow-x-auto">
-        <div className="flex space-x-2 px-2">
+        <div className="flex gap-2 px-4">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-3 py-1.5 whitespace-nowrap text-sm rounded-full transition-colors ${
+              className={`px-3 py-1.5 text-sm whitespace-nowrap rounded-full ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-blue-100"
+                  : "bg-gray-200 text-gray-700"
               }`}
             >
               {category}
@@ -124,114 +112,75 @@ export default function App() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-4">
-        <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">
-          {activeCategory === "All" ? "All Paint Products" : `${activeCategory} Paints`}
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredPaints.map((paint) => (
-            <div
-              key={paint.id}
-              className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300"
+      {/* Products Grid */}
+      <main className="p-4">
+        <h2 className="text-xl font-bold mb-4">{activeCategory === "All" ? "All Paints" : `${activeCategory} Paints`}</h2>
+        {filteredPaints.length === 0 ? (
+          <div className="text-center py-10">
+            <p className="text-gray-500">No results found.</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setActiveCategory("All");
+              }}
+              className="mt-2 text-blue-500 underline"
             >
-              <img
-                src={paint.image}
-                alt={paint.name}
-                className="w-full h-36 object-cover"
-              />
-              <div className="p-3">
-                <h3 className="text-sm sm:text-base font-semibold">{paint.name}</h3>
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {filteredPaints.map((paint) => (
+              <div key={paint.id} className="bg-white rounded shadow p-2">
+                <img src={paint.image} alt={paint.name} className="w-full h-28 object-cover rounded" />
+                <h3 className="text-sm mt-2 line-clamp-2">{paint.name}</h3>
                 <button
                   onClick={() => addToCart(paint)}
-                  className="mt-2 w-full bg-blue-500 text-white py-1.5 text-sm rounded hover:bg-blue-600 transition-colors"
+                  className="mt-2 w-full text-xs bg-blue-500 text-white py-1 rounded hover:bg-blue-600"
                 >
                   Add to Cart
                 </button>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* No Results Message */}
-        {filteredPaints.length === 0 && (
-          <div className="text-center py-10">
-            <p className="text-gray-500 text-sm sm:text-base">No paints found matching your criteria.</p>
-            <button
-              onClick={() => {
-                setActiveCategory("All");
-                setSearchQuery("");
-              }}
-              className="mt-3 text-blue-500 hover:text-blue-700 text-sm underline"
-            >
-              Clear filters
-            </button>
+            ))}
           </div>
         )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-white mt-8 py-4 border-t">
-        <div className="container mx-auto px-4 text-center text-gray-600 text-xs">
-          <p>&copy; {new Date().getFullYear()} PaintMart Kenya. All rights reserved.</p>
-        </div>
+      <footer className="bg-white py-3 border-t text-center text-xs text-gray-500">
+        &copy; {new Date().getFullYear()} PaintMart Kenya
       </footer>
 
-      {/* Shopping Cart Sidebar */}
-      <div
-        className={`fixed inset-y-0 right-0 w-full sm:w-80 bg-white shadow-lg transform ${
-          isCartOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out z-50`}
-      >
-        <div className="h-full flex flex-col">
-          <div className="p-4 border-b flex justify-between items-center">
-            <h2 className="text-lg font-bold">Shopping Cart</h2>
-            <button
-              onClick={() => setIsCartOpen(false)}
-              className="text-gray-500 hover:text-gray-700"
-              aria-label="Close cart"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="flex-grow overflow-y-auto p-4">
-            {cart.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">Your cart is empty</p>
-            ) : (
-              <ul className="space-y-3">
-                {cart.map((item) => (
-                  <li key={item.id} className="flex items-start space-x-3 border-b pb-3">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-12 h-12 object-cover rounded"
-                    />
+      {/* Cart Drawer */}
+      {isCartOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-20 flex">
+          <div className="bg-white w-full max-w-xs sm:max-w-sm ml-auto h-full rounded-l-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="flex justify-between items-center px-4 py-3 border-b">
+              <h2 className="text-lg font-semibold">Shopping Cart</h2>
+              <button onClick={() => setIsCartOpen(false)} className="text-gray-500">
+                ✕
+              </button>
+            </div>
+            <div className="p-4 space-y-3 overflow-auto h-[calc(100vh-100px)]">
+              {cart.length === 0 ? (
+                <p className="text-gray-500 text-center">Your cart is empty</p>
+              ) : (
+                cart.map((item) => (
+                  <div key={item.id} className="flex items-start gap-2 border-b pb-2">
+                    <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />
                     <div className="flex-grow">
-                      <h3 className="font-medium text-sm">{item.name}</h3>
+                      <h3 className="text-sm font-medium">{item.name}</h3>
                       <div className="flex items-center mt-1">
                         <button
                           onClick={() => updateQuantity(item.id, -1)}
-                          className="px-2 py-1 bg-gray-200 rounded text-xs"
+                          className="px-2 py-1 bg-gray-200 text-sm"
                         >
                           -
                         </button>
-                        <span className="mx-1 text-xs">{item.quantity}</span>
+                        <span className="mx-2 text-sm">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, 1)}
-                          className="px-2 py-1 bg-gray-200 rounded text-xs"
+                          className="px-2 py-1 bg-gray-200 text-sm"
                         >
                           +
                         </button>
@@ -239,48 +188,31 @@ export default function App() {
                     </div>
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="text-red-500 hover:text-red-700"
-                      aria-label="Remove item"
+                      className="text-red-500"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                        />
-                      </svg>
+                      ✕
                     </button>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                ))
+              )}
+            </div>
+            {cart.length > 0 && (
+              <div className="p-4 border-t">
+                <div className="flex justify-between mb-2 text-sm">
+                  <span>Items:</span>
+                  <span className="font-bold text-blue-600">{cartTotal}</span>
+                </div>
+                <button
+                  onClick={() => alert("Checkout functionality coming soon!")}
+                  className="w-full bg-blue-500 text-white py-2 rounded text-sm hover:bg-blue-600"
+                >
+                  Checkout
+                </button>
+              </div>
             )}
           </div>
-          {cart.length > 0 && (
-            <div className="p-4 border-t">
-              <div className="flex justify-between mb-2 text-xs">
-                <span>Items:</span>
-                <span className="font-bold text-blue-600">{cartTotal}</span>
-              </div>
-              <button
-                onClick={() => {
-                  alert("Checkout not implemented yet.");
-                  setIsCartOpen(false); // Optional: close cart after action
-                }}
-                className="w-full bg-blue-500 text-white py-2 rounded text-sm hover:bg-blue-600 transition-colors"
-              >
-                Checkout
-              </button>
-            </div>
-          )}
         </div>
-      </div>
+      )}
     </div>
   );
 }
