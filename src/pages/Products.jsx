@@ -26,7 +26,7 @@ const ProductsPage = () => {
       { id: 3, src: "/HOUSE3.jpg", alt: "Exterior 3" },
       { id: 4, src: "/HOUSE4.jpg", alt: "Exterior 4" },
       { id: 5, src: "/HOUSE5.jpg", alt: "Exterior 5" },
-      { id: 6, src: "/HOUSE6.jpg", alt: "Exterior 6" }
+      { id: 6, src: "/HOUSE8.jpg", alt: "Exterior 6" }
     ]
   };
 
