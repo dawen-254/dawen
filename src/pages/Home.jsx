@@ -62,7 +62,7 @@ export default function Home() {
             </a>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <img src="/HOUSE1.jpg" alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
+            <img src="/HOME1.jpg" alt="Painting Service" className="rounded shadow-lg max-w-full h-auto" />
           </div>
         </div>
       </section>
