@@ -21,7 +21,7 @@ export default function Footer() {
             <h3 className="text-blue font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li className="text-gray-600">hello@jorozzpaints.com</li>
-              <li className="text-gray-600">+254 712345678</li>
+              <li className="text-gray-600">+254 7113750834</li>
             </ul>
           </div>
         </div>
